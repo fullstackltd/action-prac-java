@@ -17,10 +17,10 @@ jobs:
           distribution: 'adopt' 
 
       - name: Build # Build class files or compile code
-        run: javac src/Main.java
+        run: cd src && javac Main.java
         shell: bash
 
       - name: Run
-        run: java Main
+        run: cd src && java Main
         shell: bash
     
