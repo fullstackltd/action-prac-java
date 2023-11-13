@@ -33,8 +33,9 @@ jobs:
           auth-user: ${{ secrets.EMAIL_USER }}
           auth-password: ${{secrets.EMAIL_PASSWORD }}
           subject: correciones a ${{github.repository}}
+          
           body: ${{github.repository}} ran successful build
-          from: ${{ secrets.EMAIL_USER }}}
+          from: ${{ secrets.EMAIL_USER }}
           to: fullstackltd@gmail.com
           is-tls: false
           commit-message: true
