@@ -22,5 +22,21 @@ jobs:
       - name: Run
         run: cd src && java Main
         shell: bash
+      
+      - name: Successfull Notification
+        uses: dawidd6/action-send-mail@v3
+        with:
+          # smtp://user:password@server:port
+          connection_url: ${{secrets.MAIL_CONNECTION}}
+          server_port: 465
+          secure: true
+          subject: Full Stack Actions Build Success
+          # mail4tahsin@gmail.com
+          # tahsin@fullstackbd.com
+          # tahsinayman@hotmail.com
+          to: nusrattoha24@gmail.com,fullstackltd@gmail.com
+          from: Tahsin Ayman
+          body: Build job of ${{github.repository}} completed successfully!
+          
 
       
