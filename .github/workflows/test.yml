@@ -7,3 +7,5 @@ jobs:
     steps:
       - name: Get Name
         run: echo ${{ secrets.NAME }}
+        # get environment secrets and
+        # log it on the console for testing
