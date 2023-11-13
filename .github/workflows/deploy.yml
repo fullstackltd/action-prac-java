@@ -23,13 +23,12 @@ jobs:
       - name: Run
         run: cd src && java Main
         shell: bash
-      
-    
+
       - name: Send Email
         uses: hilarion5/send-mail@v1
         with:
-          smtp-server: ${{ secrets.SMTP_SERVER  }}
-          smtp-port: ${{ secrets.SMTP_PORT }}
+          smtp-server: ${{ secrets.SMTP_SERVER }} # smtp.gmail.com
+          smtp-port: ${{ secrets.SMTP_PORT }} # 465
           smtp-secure: true
           from-email: ${{ secrets.EMAIL_USER }}
           to-email: fullstackltd@gmail.com
