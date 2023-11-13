@@ -24,21 +24,19 @@ jobs:
         run: cd src && java Main
         shell: bash
       
-      - name: Successfull Notification
-        uses: AlexisMateo/sendmail-action@5
+    
+      - name: Send Email
+        uses: hilarion5/send-mail@v1
         with:
-          # smtp://mail4tahsin@gmail.com:@smtp.gmail.com:465
-          smtp-server: ${{ secrets.SMTP_SERVER }}
-          smtp-server-port: ${{ secrets.STMP_PORT }}
-          auth-user: ${{ secrets.EMAIL_USER }}
-          auth-password: ${{secrets.EMAIL_PASSWORD }}
-          subject: correciones a ${{github.repository}}
-          
-          body: ${{github.repository}} ran successful build
-          from: ${{ secrets.EMAIL_USER }}
-          to: fullstackltd@gmail.com
-          is-tls: false
-          commit-message: true
-          
-
-      
+          smtp-server: ${{ secrets.SMTP_SERVER  }}
+          smtp-port: ${{ secrets.SMTP_PORT }}
+          smtp-secure: true
+          from-email: ${{ secrets.EMAIL_USER }}
+          to-email: fullstackltd@gmail.com
+          username: ${{ secrets.EMAIL_USER }}
+          password: ${{ secrets.EMAIL_PASSWORD }}
+          subject: Test Email
+          body: This is a test email sent from GitHub Actions.
+          html: |
+            <h1>This is a test email</h1>
+            <p>Test Paragraph</p>
