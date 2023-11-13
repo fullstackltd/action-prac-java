@@ -1,0 +1,9 @@
+name: Testing Secrets
+on:
+  workflow_dispatch:
+jobs:
+  test_env:
+    runs-on: ubuntu-22.04
+    steps:
+      - name: Get Name
+        run: echo ${{ secrets.NAME }}
